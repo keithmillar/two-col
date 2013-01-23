@@ -1,26 +1,30 @@
 {% include head.html %}
 <div id="wrap">
 	<div id="header"><!-- Start Header -->
-	<h1>Simple 2 column CSS layout, final layout</h1></div>
-	<div id="nav">
-		<ul>
-			<li><a href="/">Option 1</a></li>
-			<li><a href="/">Option 2</a></li>
-			<li><a href="/">Option 3</a></li>
-			<li><a href="/">Option 4</a></li>
-			<li><a href="/">Option 5</a></li>
-		</ul>
+	{% include top-menu.html %}
 	</div><!-- End Header -->
 		
 	<div id="main"><!-- Start Column 1-->
-	{{ content }}
+<h1>{{ page.title }}</h1>
+<hr size="4" color="black">
+ {{ content }}
+<!-- Published date -->
+ <p class="date-publish">
+Published:
+<date class="date-pub" title="{{ page.date | date_to_xmlschema }}" datetime="{{ page.date | date_to_xmlschema }}" pubdate>
+ <span class="month"><abbr>{{ page.date | date: '%B' }}</abbr></span>
+ <span class="day">{{ page.date | date: '%d' }}</span>
+ <span class="year">{{ page.date | date: '%Y' }}</span>
+ </date>
+                                                </p>
+{% include pagination.html %}
 	</div><!-- end Column 1 -->
-	<h1>Column 1</h1>	
 	<div id="sidebar"><!-- Start Column 2 and Sidebar -->
 	{% include left-sidebar.html %}
 	</div><!-- End Column 2 and Sidebar -->
 	<div id="footer"><!-- Start Footer -->
-		<p>Footer</p>
+	{% include footer.html %}
+	
 	</div><!-- End Footer -->
 </div>
 </body>
